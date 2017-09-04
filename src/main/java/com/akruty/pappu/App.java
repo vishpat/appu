@@ -22,6 +22,7 @@ public class App extends Application {
     private double xOffset;
     private double yOffset;
     private VoiceRecoderService voiceRecoderService;
+    private CommandProcessor cmdProcessor;
 
     public static void main(String[] args) {
         launch(args);
@@ -29,6 +30,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+
+        cmdProcessor = new CommandProcessor();
+        cmdProcessor.loadCommands();
+
         voiceRecoderService = new VoiceRecoderService();
         primaryStage.initStyle(StageStyle.UNDECORATED);
         Button btn = new Button();
@@ -84,12 +89,14 @@ public class App extends Application {
                 // There can be several alternative transcripts for a given chunk of speech. Just use the
                 // first (most likely) one here.
                 SpeechRecognitionAlternative alternative = result.getAlternativesList().get(0);
+                String command = alternative.getTranscript().trim();
 
-                if (alternative.getTranscript().equalsIgnoreCase("exit")) {
+                if (command.equalsIgnoreCase("quit")) {
                     exit = true;
                     break;
                 }
 
+                cmdProcessor.runCommand(command);
                 System.out.printf("Transcription: %s%n", alternative.getTranscript());
             }
 
