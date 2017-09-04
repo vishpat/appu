@@ -1,4 +1,4 @@
-package com.akruty.pappu;
+package com.akruty.appu;
 
 import java.util.List;
 
