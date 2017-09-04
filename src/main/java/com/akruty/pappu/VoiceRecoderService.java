@@ -2,6 +2,7 @@ package com.akruty.pappu;
 
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
+
 import javax.sound.sampled.*;
 
 import java.io.ByteArrayOutputStream;
@@ -54,7 +55,7 @@ public class VoiceRecoderService extends Service<byte[]> {
                 counter = 0;
                 voiceOutput = new ByteArrayOutputStream();
                 int numBytesRead;
-                byte data[] = new byte[microphone.getBufferSize()/5];
+                byte data[] = new byte[microphone.getBufferSize() / 5];
                 microphone.start();
                 while (!isCancelled()) {
                     numBytesRead = microphone.read(data, 0, data.length);

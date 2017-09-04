@@ -1,6 +1,7 @@
 package com.akruty.pappu;
 
 import java.util.List;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,14 +18,12 @@ import com.google.cloud.speech.v1.SpeechRecognitionAlternative;
 import com.google.cloud.speech.v1.SpeechRecognitionResult;
 import com.google.protobuf.ByteString;
 
-public class App extends Application
-{
+public class App extends Application {
     private double xOffset;
     private double yOffset;
     private VoiceRecoderService voiceRecoderService;
 
-    public static void main( String[] args )
-    {
+    public static void main(String[] args) {
         launch(args);
     }
 
@@ -46,7 +45,7 @@ public class App extends Application
             primaryStage.setY(event.getScreenY() - yOffset);
         });
 
-        btn.setOnMouseReleased( event -> {
+        btn.setOnMouseReleased(event -> {
             SpeechClient speech = null;
             voiceRecoderService.cancel();
             byte[] voiceData = voiceRecoderService.getVoiceData();
@@ -80,15 +79,25 @@ public class App extends Application
 
             System.out.println("Size of results " + results.size());
 
-            for (SpeechRecognitionResult result: results) {
+            boolean exit = false;
+            for (SpeechRecognitionResult result : results) {
                 // There can be several alternative transcripts for a given chunk of speech. Just use the
                 // first (most likely) one here.
                 SpeechRecognitionAlternative alternative = result.getAlternativesList().get(0);
+
+                if (alternative.getTranscript().equalsIgnoreCase("exit")) {
+                    exit = true;
+                    break;
+                }
+
                 System.out.printf("Transcription: %s%n", alternative.getTranscript());
             }
 
             try {
                 speech.close();
+                if (exit) {
+                    System.exit(1);
+                }
             } catch (Exception ex) {
                 System.out.println("Problem while closing the speech client");
             }
