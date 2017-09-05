@@ -13,13 +13,13 @@ public class CommandProcessor {
 
     private static final String commandFile = ".appu.commands";
 
-    private Properties commands = new Properties();
+    private static Properties commands = new Properties();
 
-    public boolean loadCommands()
+    public static boolean loadCommands()
     {
         String commandFilePath = System.getProperty("user.home") + File.separator + commandFile;
         try (FileInputStream in = new FileInputStream(commandFilePath)) {
-            this.commands.load(in);
+            commands.load(in);
         } catch (IOException ex) {
             System.err.println("Unable to load command file " + commandFilePath + " " + ex.getMessage());
             return false;
@@ -34,7 +34,7 @@ public class CommandProcessor {
             return;
         }
 
-        String cmd = this.commands.getProperty(command.toLowerCase());
+        String cmd = commands.getProperty(command.toLowerCase());
         if (cmd != null) {
             try {
                 Process p = Runtime.getRuntime().exec(cmd);
