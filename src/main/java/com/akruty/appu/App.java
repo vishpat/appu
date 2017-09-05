@@ -1,7 +1,5 @@
 package com.akruty.appu;
 
-import java.util.List;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,7 +12,7 @@ public class App extends Application {
     private double xOffset;
     private double yOffset;
     private VoiceRecoderService voiceRecoderService;
-    private SpeechAPIService speechAPIService;
+    private SpeechRecognitionService speechRecognitionService;
 
     public static void main(String[] args) {
         launch(args);
@@ -45,8 +43,8 @@ public class App extends Application {
             voiceRecoderService.cancel();
             byte[] voiceData = voiceRecoderService.getVoiceData();
             if (voiceData != null) {
-                speechAPIService = new SpeechAPIService(voiceData);
-                speechAPIService.start();
+                speechRecognitionService = new SpeechRecognitionService(voiceData);
+                speechRecognitionService.start();
             }
        });
 

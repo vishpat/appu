@@ -17,11 +17,11 @@ import java.util.List;
 /**
  * Created by vpati011 on 9/4/17.
  */
-public class SpeechAPIService extends Service<Void> {
+public class SpeechRecognitionService extends Service<Void> {
 
     private byte[] voiceData;
 
-    public SpeechAPIService(byte[] voiceData) {
+    public SpeechRecognitionService(byte[] voiceData) {
         this.voiceData = voiceData;
     }
 
