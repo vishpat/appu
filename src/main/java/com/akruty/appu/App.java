@@ -26,7 +26,8 @@ public class App extends Application {
 
         primaryStage.initStyle(StageStyle.UNDECORATED);
         Button btn = new Button();
-        btn.setText("Oye Pappu");
+        btn.setText("Appu");
+        btn.setStyle("-fx-border-radius: 30;");
 
         btn.setOnMousePressed(event -> {
             xOffset = event.getSceneX();
