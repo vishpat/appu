@@ -22,7 +22,6 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         CommandProcessor.loadCommands();
 
-        voiceRecoderService = new VoiceRecoderService();
 
         primaryStage.initStyle(StageStyle.UNDECORATED);
         Button btn = new Button();
@@ -32,7 +31,8 @@ public class App extends Application {
         btn.setOnMousePressed(event -> {
             xOffset = event.getSceneX();
             yOffset = event.getSceneY();
-            voiceRecoderService.restart();
+            voiceRecoderService = new VoiceRecoderService();
+            voiceRecoderService.start();
         });
 
         btn.setOnMouseDragged(event -> {
