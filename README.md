@@ -16,7 +16,7 @@ Appu uses the Google Speech API and requires you to have Google developer accoun
 
 ## Command Map
 
-Appu uses a [Java Property File](https://docs.oracle.com/cd/E23095_01/Platform.93/ATGProgGuide/html/s0204propertiesfileformat01.html) (A simple text file) to map the commands to actions. This file needs to be named as the .appu.commands and needs to be present in the user's home directory. A sample command file for Linux desktop is shown below
+Appu uses a [Java Property File](https://docs.oracle.com/cd/E23095_01/Platform.93/ATGProgGuide/html/s0204propertiesfileformat01.html) (A simple text file) to map the commands to actions. This file needs to be named as the **.appu.commands** and needs to be present in the user's home directory. A sample command file for Linux desktop is shown below
 
 <pre>
 browser=/usr/bin/chromium-browser
