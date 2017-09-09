@@ -24,9 +24,10 @@ public class App extends Application {
 
 
         primaryStage.initStyle(StageStyle.UNDECORATED);
+
         Button btn = new Button();
         btn.setText("Appu");
-        btn.setStyle("-fx-border-radius: 30;");
+        btn.setId("button-style");
 
         btn.setOnMousePressed(event -> {
             xOffset = event.getSceneX();
@@ -51,7 +52,9 @@ public class App extends Application {
 
         StackPane root = new StackPane();
         root.getChildren().add(btn);
-        primaryStage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/css/appu.css").toExternalForm());
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 }
