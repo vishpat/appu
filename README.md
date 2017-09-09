@@ -34,4 +34,8 @@ increase\ volume=amixer -D pulse sset Master 20%+
 ./run.sh
 </pre>
 
-[![Appu Demo](https://img.youtube.com/vi/oGcCJPRvRGs/0.jpg)](https://www.youtube.com/watch?v=oGcCJPRvRGs)
+# Demo
+
+![Alt Text](https://raw.githubusercontent.com/wiki/vishpat/appu/images/output.gif)
+
+Youtube [video](https://youtu.be/pfociFyKXQI)
