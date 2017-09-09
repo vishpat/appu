@@ -12,7 +12,7 @@ mvn package
 # Setup
 
 ## Google Speech API
-Appu uses the Google Speech API and requires you to have Google developer account to try it out. Information about setting an dev account and obtaining a ServiceAccount can be found [here](https://developers.google.com/identity/protocols/application-default-credentials). Once the service account is created download the json for it store it in your home directory. Now edit the run.sh file and change the parameter GOOGLE_APPLICATION_CREDENTIALS point it to the downloaded JSON. Now run the app as follows. 
+Appu uses the Google Speech API and requires you to have Google developer account to try it out. Information about setting an dev account and obtaining a ServiceAccount can be found [here](https://developers.google.com/identity/protocols/application-default-credentials). Once the service account is created download the json and store it in your home directory. Now edit the run.sh file and change the parameter GOOGLE_APPLICATION_CREDENTIALS to point it to the downloaded JSON. Now run the app as follows. 
 
 ## Command Map
 
@@ -33,3 +33,5 @@ increase\ volume=amixer -D pulse sset Master 20%+
 <pre>
 ./run.sh
 </pre>
+
+[![Appu Demo](https://img.youtube.com/vi/oGcCJPRvRGs/0.jpg)](https://www.youtube.com/watch?v=oGcCJPRvRGs)
