@@ -34,6 +34,8 @@ increase\ volume=amixer -D pulse sset Master 20%+
 ./run.sh
 </pre>
 
+Use the **quit** voice command to exit Appu.
+
 # Demo
 
 ![Alt Text](https://raw.githubusercontent.com/wiki/vishpat/appu/images/output.gif)
